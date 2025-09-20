@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>☯︎ Stinky.co ☯︎</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h1 class="logo">🐾 Stinky.co</h1>
+        <button class="hamburger" aria-label="Open menu">☰</button>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="commission.html">Commissions</a></li>
+          <li><a href="users.html">Users</a></li>
+          <li><a href="information.html">Information</a></li>
+          <li><a href="art.html">Art</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="carousel-section">
+        <h1>Progress of the Month</h1>
+        <h2>Pending Commissions</h2>
+        <div class="carousel">
+          <div class="card">
+            <h3>@Anonymous Commission</h3>
+            <p>six panel drawing</p>
+            <small>Requested: april 30, 2025</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="carousel-section">
+        <h2>Commisions In Progress</h2>
+        <div class="carousel">
+          <div class="card">
+            <h3>@Soggybuizel</h3>
+            <p>Full body, flat color (x37)</p>
+            <small>Started: June 15, 2025</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="carousel-section">
+        <h2>Commisions Completed</h2>
+        <div class="carousel">
+          <div class="card">
+            <h3>@Miidtowncitizen</h3>
+            <p>Flat Color — Fullbody</p>
+            <small>Completed: August 20, 2025</small>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Sabi_Yeen. All rights reserved.</p>
+    </footer>
+
+    <script>
+      const hamburger = document.querySelector(".hamburger");
+      const navLinks = document.querySelector(".nav-links");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,117 @@
+.search-bar {
+  display: block;
+  margin: 1rem auto 2rem;
+  padding: 0.7rem 1rem;
+  width: 80%;
+  max-width: 400px;
+  border: 2px solid #d4c4b3;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: "Nunito", sans-serif;
+}
+
+.user-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.user-card {
+  background-color: #fff;
+  border: 2px solid #d4c4b3;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(90, 64, 51, 0.2);
+  position: relative;
+  transition: transform 0.3s;
+}
+
+.user-card.pinned {
+  border-color: #8d5a4f;
+  background-color: #fff6f2;
+  transform: scale(1.03);
+}
+
+.user-image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.user-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+  border: 3px solid #5a4033;
+}
+
+.badges {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 4px;
+}
+
+.badges img {
+  width: 24px;
+  height: 24px;
+}
+
+.user-info h3 {
+  margin: 0.5rem 0 0.2rem;
+  color: #5a4033;
+}
+
+.member-since {
+  color: #a07665;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.coupons {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.coupon {
+  background-color: #f0e6de;
+  border: 1px dashed #b3927a;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.pin-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #f4e2d8;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  transition: background 0.3s;
+}
+
+.pin-btn:hover {
+  background: #f8d6c4;
+}
+
+.card img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+}

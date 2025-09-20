@@ -1,0 +1,355 @@
+/* Estilos generales */
+body {
+  font-family: "Nunito", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f5f1;
+  color: #3b2e2a;
+}
+
+/* Navegación */
+nav {
+  background-color: #5a4033;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  color: #fff;
+}
+
+.logo {
+  font-size: 1.5rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.2rem;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.hero {
+  padding: 2rem;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0;
+  text-align: left;
+  color: #6b5848;
+}
+
+.hero-text {
+  flex: 1;
+  text-align: justify;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #4a3c31;
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsividad: en pantallas pequeñas apila verticalmente */
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+  }
+
+  .hero-image {
+    margin-top: 1.5rem;
+  }
+}
+.carousel-section,
+.prices,
+.contact {
+  padding: 2rem;
+  text-align: center;
+}
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  scroll-snap-type: x mandatory;
+  padding: 1rem 0;
+}
+
+.carousel img {
+  height: 480px;
+  scroll-snap-align: center;
+  border-radius: 30px;
+  flex: 0 0 auto;
+  object-fit: cover;
+}
+
+/* Cards de precios */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background-color: #fff;
+  border: 2px solid #d4c4b3;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(90, 64, 51, 0.2);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.custom-msg {
+  margin-top: 2rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Contacto */
+.contact ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.contact a {
+  text-decoration: none;
+  color: #5a4033;
+  font-weight: bold;
+}
+
+/* Footer */
+footer {
+  background-color: #3b2e2a;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #5a4033;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    padding: 1rem 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  background: #fff;
+  color: #333;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 80%;
+  font-family: "Nunito", sans-serif;
+}
+
+.modal-content p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.modal-content button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #8d5a4f;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.modal-content button:hover {
+  background-color: #a76d63;
+}
+
+.tools-section {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  color: #6b5848;
+}
+
+.tools-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.tools-list {
+  flex: 1;
+  min-width: 280px;
+  max-width: 100%;
+}
+
+.tools-list h3 {
+  font-size: 1.8rem;
+  color: #4a3c31;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.tools-list ul {
+  list-style: disc inside;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  padding-left: 0;
+  margin: 0;
+}
+
+.news-section {
+  padding: 1rem 1rem;
+  max-width: 900px;
+  margin: 3rem auto;
+  color: #6b5848;
+  text-align: center;
+}
+
+.news-section h2 {
+  font-size: 2rem;
+  color: #4a3c31;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+/* Reutilizamos el grid de cards que ya tienes */
+.news-section .card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.news-section .card {
+  background-color: #fff;
+  border: 2px solid #d4c4b3;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(90, 64, 51, 0.2);
+  text-align: left;
+}
+
+.news-section .card h3 {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+  color: #5a4033;
+}
+
+.news-section .card p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.news-section .card small {
+  color: #a07665;
+  font-style: italic;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .news-section {
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .tools-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .tools-list {
+    min-width: 100%;
+  }
+
+  .tools-list h3 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .tools-list ul {
+    font-size: 1rem;
+    padding-left: 1.2rem;
+  }
+}

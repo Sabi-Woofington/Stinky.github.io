@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>☯︎ Stinky.co ☯︎</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="users.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h1 class="logo">🐾 Stinky.co</h1>
+        <button class="hamburger" aria-label="Open menu">☰</button>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="commission.html">Commissions</a></li>
+          <li><a href="users.html">Users</a></li>
+          <li><a href="information.html">Information</a></li>
+          <li><a href="art.html">Art</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="carousel-section">
+        <h2>Our Loyal Users</h2>
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search user..."
+          class="search-bar"
+        />
+
+        <div id="userContainer" class="user-grid">
+          <!-- inicio tarjeta -->
+          <div class="user-card" data-username="User1">
+            <button class="pin-btn">📌</button>
+            <div class="user-image-container">
+              <div class="badges">
+                <img src="#" alt="+" />
+                <img src="#" alt="+" />
+                <img src="#" alt="+" />
+              </div>
+              <img
+                class="user-image"
+                src="https://cdn.bsky.app/img/avatar/plain/did:plc:thnjwixn6v5s3f3mrq4vwdv5/bafkreidgsmh4kdjn5kzqkswx5pagnowmg7b43c2rl2vzdg7d4oyqkj2e2m@jpeg"
+                alt="user1"
+              />
+            </div>
+            <div class="user-info">
+              <h3>001 Tonicelta</h3>
+              <p class="member-since">Member since: March 2024</p>
+            </div>
+            <div class="coupons">
+              <div class="coupon">+</div>
+              <div class="coupon">+</div>
+              <div class="coupon">+</div>
+              <div class="coupon">+</div>
+              <div class="coupon">+</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Sabi_Yeen. All rights reserved.</p>
+    </footer>
+
+    <script>
+      const hamburger = document.querySelector(".hamburger");
+      const navLinks = document.querySelector(".nav-links");
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      const searchInput = document.getElementById("searchInput");
+      const userCards = document.querySelectorAll(".user-card");
+      const container = document.getElementById("userContainer");
+
+      // Filtrado
+      searchInput.addEventListener("input", () => {
+        const value = searchInput.value.toLowerCase();
+        userCards.forEach((card) => {
+          const name = card.getAttribute("data-username").toLowerCase();
+          card.style.display = name.includes(value) ? "block" : "none";
+        });
+      });
+
+      // Pinning
+      const updatePins = () => {
+        const pinned = JSON.parse(localStorage.getItem("pinnedUsers") || "[]");
+        userCards.forEach((card) => {
+          const name = card.getAttribute("data-username");
+          const pinBtn = card.querySelector(".pin-btn");
+          if (pinned.includes(name)) {
+            card.classList.add("pinned");
+            container.prepend(card);
+          } else {
+            card.classList.remove("pinned");
+          }
+
+          pinBtn.onclick = () => {
+            if (pinned.includes(name)) {
+              const index = pinned.indexOf(name);
+              pinned.splice(index, 1);
+            } else {
+              pinned.push(name);
+            }
+            localStorage.setItem("pinnedUsers", JSON.stringify(pinned));
+            updatePins();
+          };
+        });
+      };
+
+      document.addEventListener("DOMContentLoaded", updatePins);
+    </script>
+  </body>
+</html>

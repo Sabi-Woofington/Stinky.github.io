@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>☯︎ Stinky.co ☯︎</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="art.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Modal igual que en index.html */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+      }
+
+      .modal-content {
+        max-width: 400px;
+        padding: 1.5rem 2rem;
+        text-align: center;
+      }
+
+      .modal-content p {
+        margin: 1rem 0;
+      }
+
+      .modal-content button {
+        margin: 0.5rem;
+        padding: 0.5rem 1.5rem;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .gallery-section.hidden {
+        display: none;
+      }
+
+      .warning-box {
+        text-align: center;
+        padding: 2rem;
+        background: #fff3cd;
+        border: 1px solid #ffeeba;
+        border-radius: 8px;
+        margin: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h1 class="logo">🎨 Galería</h1>
+        <button class="hamburger" aria-label="Menú">☰</button>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="commission.html">Commission</a></li>
+          <li><a href="users.html">Users</a></li>
+          <li><a href="information.html">Information</a></li>
+          <li><a href="art.html">Art</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="galeria" class="gallery-section">
+        <h2>My Art</h2>
+        <div class="gallery-grid">
+          <img
+            src="https://static1.e621.net/data/sample/db/9f/db9f9fdf09da337c2546ea8eb255d7e1.jpg"
+            alt="Comisión 1"
+          />
+          <img
+            src="https://static1.e621.net/data/sample/e9/b1/e9b10430b5185120f0b2cb2d871f9863.jpg"
+            alt="Comisión 2"
+          />
+          <img
+            src="https://static1.e621.net/data/sample/d9/22/d9228b9fff0d67767bd0d211c1a0c120.jpg"
+            alt="Comisión 3"
+          />
+          <img
+            src="https://static1.e621.net/data/sample/83/f7/83f7464393b16104a2fb8cfb4bddd1e3.jpg"
+            alt="Comisión 4"
+          />
+          <img
+            src="https://static1.e621.net/data/sample/fc/60/fc60d47899752f8be9ed85f2672bd1b1.jpg"
+            alt="Comisión 5"
+          />
+          <img
+            src="https://static1.e621.net/data/sample/c4/bf/c4bf31902351c476e83e31eab0db6272.jpg"
+            alt="Comisión 2"
+          />
+          <img
+            src="https://static1.e621.net/data/sample/b6/cc/b6cc962a6dca8fdf871f1ae874528e7c.jpg"
+            alt="Comisión 1"
+          />
+          <img
+            src="https://static1.e621.net/data/sample/7e/d5/7ed5017c377e576e1ec3ea2ff644d500.jpg"
+            alt="Comisión 2"
+          />
+        </div>
+      </section>
+
+      <div
+        id="modal18"
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+      >
+        <div class="modal-content">
+          <p id="modalTitle" style="font-weight: bold; font-size: 1.2rem">
+            Older than 18 years old?
+          </p>
+          <p>You must be older than 18 years old to visit this site</p>
+          <button id="btnNo" aria-label="No, I am not older than 18 years old">
+            No
+          </button>
+          <button id="btnSi" aria-label="Yes, I am older than 18 years old">
+            Yes
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Sabi_Yeen. all rights reserved.</p>
+    </footer>
+
+    <script>
+      // Menú hamburguesa
+      const hamburger = document.querySelector(".hamburger");
+      const navLinks = document.querySelector(".nav-links");
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      // Verificación de edad con modal igual al index.html
+      document.addEventListener("DOMContentLoaded", () => {
+        const modal = document.getElementById("modal18");
+        const galeria = document.getElementById("galeria");
+        const btnSi = document.getElementById("btnSi");
+        const btnNo = document.getElementById("btnNo");
+
+        const decision = localStorage.getItem("mayor18");
+
+        if (decision === "si") {
+          modal.style.display = "none";
+          galeria.classList.remove("hidden");
+        } else if (decision === "no") {
+          modal.style.display = "none";
+          galeria.innerHTML = `
+            <div class="warning-box">
+              <h2>⚠️ Restricted Content</h2>
+              <p>You must be older than 18 years old to view this gallery.</p>
+              <a href="index.html">Return to homepage</a>
+            </div>
+          `;
+          galeria.classList.remove("hidden");
+        } else {
+          modal.style.display = "flex";
+          galeria.classList.add("hidden");
+        }
+
+        btnSi.addEventListener("click", () => {
+          localStorage.setItem("mayor18", "si");
+          modal.style.display = "none";
+          galeria.classList.remove("hidden");
+        });
+
+        btnNo.addEventListener("click", () => {
+          localStorage.setItem("mayor18", "no");
+          modal.style.display = "none";
+          galeria.innerHTML = `
+            <div class="warning-box">
+              <h2>⚠️ Restricted Content</h2>
+              <p>You must be older than 18 years old to view this gallery.</p>
+              <a href="index.html">Return to homepage</a>
+            </div>
+          `;
+          galeria.classList.remove("hidden");
+        });
+      });
+    </script>
+  </body>
+</html>
